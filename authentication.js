@@ -9,7 +9,7 @@
 exports.handler =  function(event, context, callback) {
     var token = event.authorizationToken;
     switch (token) {
-        case 'process.env.SECRETKEY':
+        case `${process.env.SECRETKEY}`:
             callback(null, generatePolicy('user', 'Allow', event.methodArn));
             break;
         case 'deny':
